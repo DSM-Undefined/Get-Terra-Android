@@ -49,7 +49,7 @@ public class SigninActivity extends Activity {
                 if(email.matches("^[A-z|0-9]([A-z|0-9]*)(@)([A-z]*)(\\.)([A-z]*)$")){
                     //아이디비번설정 해야함
                         //서버랑연동
-                    post(email,password,userid);
+                    post(email,password,userid);/*
                     if(code == 201){
                         Toast.makeText(SigninActivity.this, "가입완료", Toast.LENGTH_SHORT).show();
                     }else if(code == 205){
@@ -57,7 +57,7 @@ public class SigninActivity extends Activity {
                     }else{
                         codeerror = String.valueOf(code);
                         Toast.makeText(SigninActivity.this, codeerror, Toast.LENGTH_SHORT).show();
-                    }
+                    }*/
                 }else
                 {
                     emailerror.setText("E-mail의 형식이 잘못되었습니다.");
@@ -67,6 +67,7 @@ public class SigninActivity extends Activity {
         });
     }
     public void post(String email,String password ,String userid){
+        final TextView emailerror = (TextView)findViewById(R.id.signin_emaile_tv);
         final API api = Connecter.INSTANCE.createApi();
         JsonObject req = new JsonObject();
         req.addProperty("id",userid);
@@ -79,6 +80,11 @@ public class SigninActivity extends Activity {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if(response.isSuccessful()) {
                     code=response.code();
+                    if(response.code()==201){
+                        Toast.makeText(SigninActivity.this, "가입완료", Toast.LENGTH_SHORT).show();
+                    }else if(response.code() == 205){
+                        emailerror.setText("중복id혹은 email");
+                    }
                 }
             }
 

@@ -1,6 +1,7 @@
 package undefined.dsm.getterra.ui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,20 +12,29 @@ import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 import com.justgo.Connecter.Connecter;
+import com.justgo.Util.PrefManagerKt;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import undefined.dsm.getterra.R;
 import undefined.dsm.getterra.connecter.API;
+import undefined.dsm.getterra.connecter.ItemLogin;
 
 
 public class LoginActivity extends Activity {
     String userid;
     String password;
+    ItemLogin accessToken;
+    Boolean isAccess = true;
+    Context context;
     int code;
 
     public void post(String userid, String password){
+
+
+        final TextView IdError = (TextView)findViewById(R.id.login_btn);
+        final TextView PasswordError = (TextView)findViewById(R.id.login_pw_errortv);
 
         API api;
         api = Connecter.INSTANCE.createApi();
@@ -32,18 +42,27 @@ public class LoginActivity extends Activity {
         req.addProperty("id",userid);
         req.addProperty("password",password);
         api.postLogin(req);
-        Call<Void> call = api.postLogin(req);
-        call.enqueue(new Callback<Void>() {
+        Call<ItemLogin> call = api.postLogin(req);
+        call.enqueue(new Callback<ItemLogin>() {
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if(response.isSuccessful()) {
-                    code=response.code();
+            public void onResponse(Call<ItemLogin> call, Response<ItemLogin> response) {
+                code=response.code();
+                if(response.code() == 200){
+                    Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                }else if(response.code() == 401){
+                    IdError.setText("잘못된 ID입니다.");
+                    PasswordError.setText("잘못된 PW입니다.");
                 }
-                //Toast.makeText(LoginActivity.this, "서버켜짐", Toast.LENGTH_SHORT).show();
+                    accessToken = response.body();
+//                    accessToken.getAccessToken();
+                    PrefManagerKt.saveToken(context,accessToken.getAccessToken(),isAccess);
+
+
+
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
+            public void onFailure(Call<ItemLogin> call, Throwable t) {
                 Toast.makeText(LoginActivity.this, "서버꺼짐", Toast.LENGTH_SHORT).show();
             }
         });
@@ -54,8 +73,8 @@ public class LoginActivity extends Activity {
 
          final EditText idet = (EditText)findViewById(R.id.login_id_et);
          final EditText passwordet = (EditText)findViewById(R.id.login_pw_et);
-        final TextView IdError = (TextView)findViewById(R.id.login_btn);
-        final TextView PasswordError = (TextView)findViewById(R.id.login_pw_errortv);
+         final TextView IdError = (TextView)findViewById(R.id.login_btn);
+         final TextView PasswordError = (TextView)findViewById(R.id.login_pw_errortv);
         IdError.setText("");
         PasswordError.setText("");
 
@@ -82,12 +101,12 @@ public class LoginActivity extends Activity {
                     IdError.setText("아이디 혹은 비밀번호를를 입력하시오");
                 }else {
                     post(userid,password);
-                    if(code == 201){
+                    /*if(code == 201){
                         Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                     }else if(code == 401) {
                         IdError.setText("잘못된 ID입니다.");
                         PasswordError.setText("잘못된 PW입니다.");
-                    }/*else{
+                    }else{
                         codeerror = String.valueOf(code);
                         Toast.makeText(LoginActivity.this, codeerror, Toast.LENGTH_SHORT).show();
                     }

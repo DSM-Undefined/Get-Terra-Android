@@ -29,6 +29,7 @@
         app:layout_constraintGuide_begin="300dp" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="182dp"
         android:layout_height="178dp"
         android:src="@drawable/icon_logo_backsh"
@@ -36,6 +37,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/ic_app_log"
+        android:layout_width="175dp"
+        android:layout_height="161dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_activity_ic"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="1.0" />
 
     <android.support.constraint.Guideline
