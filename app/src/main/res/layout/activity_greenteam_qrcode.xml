@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff5f5"
+    tools:context=".GreenteamQuizActivity">
+
+    <ImageView
+        android:id="@+id/greenteam_timer"
+        android:layout_width="match_parent"
+        android:layout_height="217dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:src="@drawable/back_greenteam_timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/booth_gram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:text="1."
+        android:textColor="#a4e6ab"
+        android:textSize="43sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greenteam_timer" />
+
+    <TextView
+        android:id="@+id/booth_cinabro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:text="2."
+        android:textColor="#a4e6ab"
+        android:textSize="43sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/booth_gram" />
+
+    <TextView
+        android:id="@+id/booth_sweetfab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:text="3."
+        android:textColor="#a4e6ab"
+        android:textSize="43sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/booth_cinabro" />
+
+    <TextView
+        android:id="@+id/booth_GG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:text="4."
+        android:textColor="#a4e6ab"
+        android:textSize="43sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/booth_sweetfab" />
+
+    <ImageView
+        android:id="@+id/greenteam_qr"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/back_btn_qrcode"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:src="@drawable/ic_qrcode"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

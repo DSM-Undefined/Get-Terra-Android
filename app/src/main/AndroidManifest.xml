@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="undefined.dsm.getterra">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".TeamChoiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--<activity android:name=".TeamChoiceActivity"/>-->
+        <activity android:name=".BlueteamActivity"/>
+        <activity android:name=".GreenteamActivity"/>
+        <activity android:name=".YellowteamActivity"/>
+        <activity android:name=".VioletteamActivity"/>
+        <activity android:name=".BlueteamQuizActivity"/>
+        <activity android:name=".GreenteamQuizActivity"/>
+        <activity android:name=".YellowteamQuizActivity"/>
+        <activity android:name=".VioletteamQuizActivity"/>
+        <activity android:name=".CaptureActivityAnyOrientation"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
     </application>
 
 </manifest>
