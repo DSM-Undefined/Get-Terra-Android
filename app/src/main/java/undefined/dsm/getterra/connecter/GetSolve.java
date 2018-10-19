@@ -36,4 +36,9 @@ public class GetSolve {
     public String[] getChoices() {
         return choices;
     }
+
+    public String getProblemId()
+    {
+        return problemId;
+    }
 }

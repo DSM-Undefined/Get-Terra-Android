@@ -14,10 +14,35 @@ import undefined.dsm.getterra.R;
 public class SelectFragment extends Fragment {
     TextView s1, s2, s3, s4;
     boolean st[] = new boolean[4];
+
     public SelectFragment(){
     }
+
+    public interface SendDataSelect{
+        void sendDataSelect(boolean select[]);
+    }
+
+    private SendDataSelect sendDataSelect;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public void onAttach(Context context)
+    {
+        super.onAttach(context);
+        if(context instanceof SendDataSelect){
+            sendDataSelect = (SendDataSelect) context;
+        } else{
+            throw new RuntimeException(context.toString() + "must implement");
+        }
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+        sendDataSelect = null;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState){
         for(int i=0; i<4; i++){
             st[i] = false;
         }
@@ -26,6 +51,7 @@ public class SelectFragment extends Fragment {
         s2 = view.findViewById(R.id.quiz_selectsecond_tv);
         s3 = view.findViewById(R.id.quiz_selectthird_tv);
         s4 = view.findViewById(R.id.quiz_selectfourth_tv);
+
         View.OnClickListener listener = new View.OnClickListener()
         {
             @Override
@@ -33,6 +59,7 @@ public class SelectFragment extends Fragment {
             {
                 switch (v.getId())
                 {
+
                     case R.id.quiz_selectfirst_tv:
                         for(int i=0; i<4; i++)
                         {
@@ -62,6 +89,7 @@ public class SelectFragment extends Fragment {
                         }
                         break;
                 }
+                sendDataSelect.sendDataSelect(st);
                 selectAnimation(s1, st[0]);
                 selectAnimation(s2, st[1]);
                 selectAnimation(s3, st[2]);
@@ -88,4 +116,5 @@ public class SelectFragment extends Fragment {
             t.setBackgroundResource(R.drawable.round_background);
         }
     }
+
 }

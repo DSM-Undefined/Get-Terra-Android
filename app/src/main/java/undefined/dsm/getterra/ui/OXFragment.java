@@ -1,5 +1,7 @@
 package undefined.dsm.getterra.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import kotlinx.coroutines.experimental.channels.Send;
 import undefined.dsm.getterra.R;
 
 public class OXFragment extends Fragment {
@@ -16,12 +19,37 @@ public class OXFragment extends Fragment {
     public OXFragment(){
 
     }
+
+    public interface SendDataOX{
+        void sendDataOX(boolean OX[]);
+    }
+
+    private SendDataOX sendDataOX;
+
+    @Override
+    public void onAttach(Context context)
+    {
+        super.onAttach(context);
+        if(context instanceof SendDataOX){
+            sendDataOX = (SendDataOX) context;
+        } else{
+            throw new RuntimeException(context.toString() + "must implement");
+        }
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+        sendDataOX = null;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         b[0] = false; b[1] = false;
         View view = inflater.inflate(R.layout.fragment_ox, container, false);
         o = view.findViewById(R.id.quiz_answeriso_btn);
         x = view.findViewById(R.id.quiz_answerisx_btn);
+
         View.OnClickListener listener = new View.OnClickListener()
         {
             @Override
@@ -32,8 +60,9 @@ public class OXFragment extends Fragment {
                     case R.id.quiz_answeriso_btn:
                         b[0] = true; b[1] = false; break;
                     case R.id.quiz_answerisx_btn:
-                        b[0] = false; b[1] = true; break;
+                        b[0] = false; b[1] = true;break;
                 }
+                sendDataOX.sendDataOX(b);
                 selectAnimation(o, b[0]);
                 selectAnimation(x, b[1]);
             }
