@@ -18,7 +18,7 @@ object Connecter {
 
         retrofit = Retrofit
                 .Builder()
-                .baseUrl("http://ec2.istruly.sexy/")
+                .baseUrl("http://ec2.istruly.sexy:1234/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client)

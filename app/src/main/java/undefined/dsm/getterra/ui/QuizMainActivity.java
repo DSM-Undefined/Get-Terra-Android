@@ -13,10 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import io.reactivex.annotations.NonNull;
 import undefined.dsm.getterra.R;
-import retrofit2.Retrofit;
-import undefined.dsm.getterra.connecter.QuizRetrofit;
 
 public class QuizMainActivity extends AppCompatActivity {
 
