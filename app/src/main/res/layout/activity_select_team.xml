@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff5f5"
+    tools:context=".ui.SelectTeamActivity">
+
+    <View
+        android:id="@+id/selectTeam_backEllipse_view"
+        android:background="@drawable/back_ellipse_default"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"/>
+
+    <TextView
+        android:id="@+id/selectTeam_select_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="팀을 선택하세요"
+        android:textColor="#Fff"
+        android:textSize="41sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        style="@style/EditTextTheme"
+        android:id="@+id/selectTeam_blue_btn"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        android:text="Team_blue"
+        android:background="@drawable/back_btn_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectTeam_backEllipse_view" />
+
+    <Button
+        style="@style/EditTextTheme"
+        android:id="@+id/selectTeam_green_btn"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:text="Team_green"
+        android:background="@drawable/back_btn_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectTeam_blue_btn" />
+
+    <Button
+        style="@style/EditTextTheme"
+        android:id="@+id/selectTeam_yellow_btn"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:text="Team_yellow"
+        android:background="@drawable/back_btn_yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectTeam_green_btn" />
+
+    <Button
+        style="@style/EditTextTheme"
+        android:id="@+id/selectTeam_violet_btn"
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:text="Team_violet"
+        android:background="@drawable/back_btn_violet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectTeam_yellow_btn" />
+</android.support.constraint.ConstraintLayout>
