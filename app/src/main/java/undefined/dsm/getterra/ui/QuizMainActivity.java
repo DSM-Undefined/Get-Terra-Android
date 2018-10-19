@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
+
 import undefined.dsm.getterra.R;
 
 public class QuizMainActivity extends AppCompatActivity {
@@ -35,7 +37,7 @@ public class QuizMainActivity extends AppCompatActivity {
     EditText userInput;
 
     //test
-    int _problemTypetest = 2;
+    int _problemTypetest = 1;
     public static Activity _QuizMainActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,9 @@ public class QuizMainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), CorrectionMainActivity.class);
                 startActivity(intent);
             }
+
+            //retrofit
+
         });
 
         QuizActivitySet();
