@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/im"
+        android:id="@+id/login_bg_im"
         android:layout_width="1061dp"
         android:layout_height="493dp"
         android:src="@drawable/icon_back"
@@ -27,11 +27,11 @@
         app:layout_constraintGuide_begin="223dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/login_ic_im"
         android:layout_width="153dp"
         android:layout_height="141dp"
         android:src="@drawable/icon_logo_backsh"
-        app:layout_constraintBottom_toTopOf="@+id/eamil"
+        app:layout_constraintBottom_toTopOf="@+id/signin_email_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
         app:layout_constraintGuide_begin="109dp" />
 
     <EditText
-        android:id="@+id/eamil"
+        android:id="@+id/signin_email_btn"
         android:layout_width="302dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -57,14 +57,14 @@
         android:lines="1"
         android:textColorHint="#ffdba5"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/user"
+        app:layout_constraintBottom_toTopOf="@+id/signin_id_et"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/login_ic_im"
         app:layout_constraintVertical_bias="0.424" />
 
     <EditText
-        android:id="@+id/user"
+        android:id="@+id/signin_id_et"
         android:layout_width="266dp"
         android:layout_height="44dp"
         android:layout_marginBottom="8dp"
@@ -75,26 +75,26 @@
         android:hint="ID"
         android:textColorHint="#ffdba5"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintBottom_toTopOf="@+id/sginin_pw_et"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eamil" />
+        app:layout_constraintTop_toBottomOf="@+id/signin_email_btn" />
 
     <TextView
-        android:id="@+id/emailerror"
+        android:id="@+id/signin_emaile_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="에러"
         android:textColor="#ff4040"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/user"
-        app:layout_constraintStart_toStartOf="@+id/eamil"
+        app:layout_constraintBottom_toTopOf="@+id/signin_id_et"
+        app:layout_constraintStart_toStartOf="@+id/signin_email_btn"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/sginin_pw_et"
         android:layout_width="266dp"
         android:layout_height="44dp"
         android:hint="PW"
@@ -103,15 +103,15 @@
         android:inputType="textPassword"
         android:textColorHint="#ffdba5"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/sign_in"
+        app:layout_constraintBottom_toTopOf="@+id/sginin_sign_in_bt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user"
+        app:layout_constraintTop_toBottomOf="@+id/signin_id_et"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/sign_in"
+        android:id="@+id/sginin_sign_in_bt"
         android:layout_width="201dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

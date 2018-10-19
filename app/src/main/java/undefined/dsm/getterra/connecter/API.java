@@ -1,9 +1,11 @@
 package undefined.dsm.getterra.connecter;
 
+import com.google.gson.JsonObject;
 import com.justgo.Connecter.Connecter;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -14,16 +16,16 @@ import retrofit2.http.Query;
 
 public interface API {
 
-    @POST("/signup")
-    @FormUrlEncoded
+    @POST("signup")
     @Headers( "Content-Type: application/json" )
-    Call <Void> postSignin(
+    Call <Void> postSignin(/*
             @Field("id") String id,
             @Field("email") String email,
-            @Field("password")String password);
-    @FormUrlEncoded
-    @POST("/auth")
-    Call <Void> postLogin(
+            @Field("password")String password*/
+            @Body JsonObject jsonObject);
+    @POST("auth")
+    Call <Void> postLogin(/*
             @Field("id") String id,
-            @Field("password")String password);
+            @Field("password")String password*/
+            @Body JsonObject jsonObject);
 }

@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.JsonObject;
 import com.justgo.Connecter.Connecter;
 
 
@@ -27,13 +29,13 @@ public class SigninActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
-        final TextView emailerror = (TextView)findViewById(R.id.emailerror);
-        final EditText emailet =(EditText)findViewById(R.id.eamil);
-        final EditText passwordet = (EditText)findViewById(R.id.password);
-        final EditText idet = (EditText)findViewById(R.id.user);
+        final TextView emailerror = (TextView)findViewById(R.id.signin_emaile_tv);
+        final EditText emailet =(EditText)findViewById(R.id.signin_email_btn);
+        final EditText passwordet = (EditText)findViewById(R.id.sginin_pw_et);
+        final EditText idet = (EditText)findViewById(R.id.signin_id_et);
 
         emailerror.setText("");
-        Button signin = (Button)findViewById(R.id.sign_in);
+        Button signin = (Button)findViewById(R.id.sginin_sign_in_bt);
         signin.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,8 +68,12 @@ public class SigninActivity extends Activity {
     }
     public void post(String email,String password ,String userid){
         final API api = Connecter.INSTANCE.createApi();
-        api.postSignin(email,password,userid);
-        Call<Void> call = api.postSignin("id","email","password");
+        JsonObject req = new JsonObject();
+        req.addProperty("id",userid);
+        req.addProperty("password",password);
+        req.addProperty("email",email);
+        api.postSignin(req);
+        Call<Void> call = api.postSignin(req);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

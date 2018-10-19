@@ -9,7 +9,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/im"
+        android:id="@+id/login_bg_im"
         android:layout_width="1061dp"
         android:layout_height="497dp"
         android:layout_marginTop="8dp"

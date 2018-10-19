@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.JsonObject;
 import com.justgo.Connecter.Connecter;
 
 import retrofit2.Call;
@@ -27,8 +28,11 @@ public class LoginActivity extends Activity {
 
         API api;
         api = Connecter.INSTANCE.createApi();
-        api.postLogin(userid,password);
-        Call<Void> call = api.postLogin("id","password");
+        JsonObject req = new JsonObject();
+        req.addProperty("id",userid);
+        req.addProperty("password",password);
+        api.postLogin(req);
+        Call<Void> call = api.postLogin(req);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
@@ -48,14 +52,14 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-         final EditText idet = (EditText)findViewById(R.id.editText);
-         final EditText passwordet = (EditText)findViewById(R.id.editText2);
-        final TextView IdError = (TextView)findViewById(R.id.iderror);
-        final TextView PasswordError = (TextView)findViewById(R.id.passworderror);
+         final EditText idet = (EditText)findViewById(R.id.login_id_et);
+         final EditText passwordet = (EditText)findViewById(R.id.login_pw_et);
+        final TextView IdError = (TextView)findViewById(R.id.login_btn);
+        final TextView PasswordError = (TextView)findViewById(R.id.login_pw_errortv);
         IdError.setText("");
         PasswordError.setText("");
 
-        Button signinB = (Button)findViewById(R.id.button2);
+        Button signinB = (Button)findViewById(R.id.login_btn_sign);
         signinB.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +68,7 @@ public class LoginActivity extends Activity {
             }
         });
 
-        Button login = (Button)findViewById(R.id.buttonlog);
+        Button login = (Button)findViewById(R.id.login_btn_log);
         login.setOnClickListener((new Button.OnClickListener(){
             @Override
             public void onClick(View view) {
