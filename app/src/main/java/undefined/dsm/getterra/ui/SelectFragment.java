@@ -41,6 +41,12 @@ public class SelectFragment extends Fragment {
         sendDataSelect = null;
     }
 
+    Bundle bundle = getArguments();
+    String fSel = bundle.getString("f_sel");
+    String sSel = bundle.getString("s_sel");
+    String tSel = bundle.getString("t_sel");
+    String oSel = bundle.getString("o_sel");
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState){
         for(int i=0; i<4; i++){
@@ -51,6 +57,11 @@ public class SelectFragment extends Fragment {
         s2 = view.findViewById(R.id.quiz_selectsecond_tv);
         s3 = view.findViewById(R.id.quiz_selectthird_tv);
         s4 = view.findViewById(R.id.quiz_selectfourth_tv);
+
+        s1.setText(fSel);
+        s2.setText(sSel);
+        s3.setText(tSel);
+        s4.setText(oSel);
 
         View.OnClickListener listener = new View.OnClickListener()
         {

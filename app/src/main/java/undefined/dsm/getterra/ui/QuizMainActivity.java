@@ -31,6 +31,7 @@ public class QuizMainActivity extends AppCompatActivity implements OXFragment.Se
     String question = "문제입니당";
     String problemId = "문제 아이디";
     String answer = "답";
+    String choices[] = new String[4];
     int statusCode;
     int result;
     boolean OX[] = new boolean[2];
@@ -134,6 +135,12 @@ public class QuizMainActivity extends AppCompatActivity implements OXFragment.Se
                     }
             case 1: {_problemType.setText("객관식");
                         fr = new SelectFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("f_sel",choices[0]);
+                        bundle.putString("s_sel",choices[1]);
+                        bundle.putString("t_sel",choices[2]);
+                        bundle.putString("o_sel",choices[3]);
+                        fr.setArguments(bundle);
                         userInput.setVisibility(View.GONE);
                         break;
                     }
@@ -159,6 +166,7 @@ public class QuizMainActivity extends AppCompatActivity implements OXFragment.Se
                     question = solve.getQuestion();
                     boothName = solve.getBoothName();
                     problemId = solve.getProblemId();
+                    choices = solve.getChoices();
                 }else {
                     statusCode  = response.code();
                     // handle request errors depending on status code
