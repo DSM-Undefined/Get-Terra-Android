@@ -34,12 +34,12 @@ public class OXFragment extends Fragment {
                     case R.id.quiz_answerisx_btn:
                         b[0] = false; b[1] = true; break;
                 }
+                selectAnimation(o, b[0]);
+                selectAnimation(x, b[1]);
             }
         };
         o.setOnClickListener(listener);
         x.setOnClickListener(listener);
-        selectAnimation(o, b[0]);
-        selectAnimation(x, b[1]);
         return view;
     }
     public void selectAnimation(TextView t, boolean b){
