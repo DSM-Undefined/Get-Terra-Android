@@ -21,15 +21,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="332dp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginStart="72dp"
-        android:id="@+id/quiz_userInput_et"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

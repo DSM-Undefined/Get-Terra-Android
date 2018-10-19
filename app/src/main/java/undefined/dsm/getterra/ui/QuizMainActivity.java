@@ -1,11 +1,12 @@
 package undefined.dsm.getterra.ui;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,8 +38,7 @@ public class QuizMainActivity extends AppCompatActivity {
     EditText userInput;
 
     //test
-    int _problemTypetest = 0;
-
+    int _problemTypetest = 2;
     public static Activity _QuizMainActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,14 +75,18 @@ public class QuizMainActivity extends AppCompatActivity {
         {
             case 0: {_problemType.setText("주관식");
                        fr = new SubjectFragment();
+                       userInput.setVisibility(View.VISIBLE);
+
                        break;
                     }
             case 1: {_problemType.setText("객관식");
                         fr = new SelectFragment();
+                        userInput.setVisibility(View.GONE);
                         break;
                     }
             case 2: {_problemType.setText("O/X");
                         fr = new OXFragment();
+                        userInput.setVisibility(View.GONE);
                         break;
                     }
         }
@@ -90,7 +94,7 @@ public class QuizMainActivity extends AppCompatActivity {
     }
     public void FragmentSet()
     {
-        FragmentManager fragment = getFragmentManager();
+        FragmentManager fragment = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragment.beginTransaction();
         fragmentTransaction.replace(R.id.quiz_fragment_fg, fr);
         fragmentTransaction.commit();

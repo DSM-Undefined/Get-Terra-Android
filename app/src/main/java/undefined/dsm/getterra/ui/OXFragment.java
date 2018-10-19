@@ -1,6 +1,6 @@
 package undefined.dsm.getterra.ui;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -19,7 +19,7 @@ public class OXFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         b[0] = false; b[1] = false;
-        View view = inflater.inflate(R.layout.fragment_select, container, false);
+        View view = inflater.inflate(R.layout.fragment_ox, container, false);
         o = view.findViewById(R.id.quiz_answeriso_btn);
         x = view.findViewById(R.id.quiz_answerisx_btn);
         View.OnClickListener listener = new View.OnClickListener()
@@ -30,12 +30,14 @@ public class OXFragment extends Fragment {
                 switch (v.getId())
                 {
                     case R.id.quiz_answeriso_btn:
-                        b[0] = true; b[1] = false;
+                        b[0] = true; b[1] = false; break;
                     case R.id.quiz_answerisx_btn:
-                        b[0] = false; b[1] = true;
+                        b[0] = false; b[1] = true; break;
                 }
             }
         };
+        o.setOnClickListener(listener);
+        x.setOnClickListener(listener);
         selectAnimation(o, b[0]);
         selectAnimation(x, b[1]);
         return view;

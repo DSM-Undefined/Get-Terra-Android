@@ -89,7 +89,7 @@
         app:layout_constraintGuide_begin="565dp" />
 
     <include layout="@layout/activity_quiz_question"/>
-    <fragment
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="350dp"

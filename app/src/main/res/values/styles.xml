@@ -9,5 +9,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
+    <style name="editTextStyle">
+        <item name="colorControlNormal">#ff555555</item>
+        <item name="colorControlActivated">#ffbbbb00</item>
+    </style>
 </resources>

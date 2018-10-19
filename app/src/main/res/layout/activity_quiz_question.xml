@@ -79,6 +79,7 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
@@ -98,6 +99,19 @@
             android:textColor="#ffb587"
             android:textSize="20dp" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/quiz_userInput_et"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginStart="72dp"
+        android:background="@null"
+        android:hint="정답을 입력하세요."
+        app:layout_constraintBottom_toBottomOf="@+id/quiz_problembackground_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 
