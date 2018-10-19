@@ -1,6 +1,5 @@
 package undefined.dsm.getterra.connecter;
 
-import com.google.gson.JsonObject;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -19,7 +18,7 @@ public class GetSolve {
     private int problemType;
     @SerializedName("choices")
     @Expose
-    private String[] choices = new String[4];
+    private String[] choices;
 
     public String getBoothName() {
         return boothName;

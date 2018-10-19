@@ -1,7 +1,7 @@
 package undefined.dsm.getterra.ui;
 
 import android.content.Context;
-import android.content.Intent;
+
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 
@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import kotlinx.coroutines.experimental.channels.Send;
 import undefined.dsm.getterra.R;
 
 public class OXFragment extends Fragment {

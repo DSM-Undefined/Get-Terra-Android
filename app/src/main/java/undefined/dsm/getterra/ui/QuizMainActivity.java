@@ -192,7 +192,6 @@ public class QuizMainActivity extends AppCompatActivity implements OXFragment.Se
                     result  = response.code();
                 }else {
                     result  = response.code();
-                    // handle request errors depending on status code
                 }
             }
 
