@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.JsonArray;
-import com.google.zxing.integration.android.IntentIntegrator;
 import com.justgo.Connecter.Connecter;
 
 import retrofit2.Call;
@@ -30,7 +29,6 @@ public class QrActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new IntentIntegrator(QrActivity.this).initiateScan();
             }
         });
     }
@@ -59,3 +57,4 @@ public class QrActivity extends AppCompatActivity {
                 });
     }
 }
+
