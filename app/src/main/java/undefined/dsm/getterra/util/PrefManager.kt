@@ -8,7 +8,7 @@ private fun getPref(context: Context): SharedPreferences {
     return context.getSharedPreferences("pref", Context.MODE_PRIVATE)
 }
 
-fun saveToken(context: Context, token: String, isAccess: Boolean = true) {
+fun saveToken(context: Context, token: String?, isAccess: Boolean = true) {
     getPref(context).edit().let {
         it.putString(getKey(isAccess), token)
         it.apply()

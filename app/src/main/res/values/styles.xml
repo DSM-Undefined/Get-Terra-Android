@@ -8,9 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
     <style name="EditTextTheme" parent="Base.V7.Widget.AppCompat.EditText">
         <item name="android:textColor">#FFF</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">33sp</item>
+    </style>
+
+    <style name="SpalshThene" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_spalsh</item>
+
     </style>
 </resources>
