@@ -4,7 +4,6 @@ public class ItemLogin  {
     public String accessToken;
 
     public String getAccessToken() {
-
         return accessToken;
     }
 

@@ -8,11 +8,14 @@ private fun getPref(context: Context): SharedPreferences {
     return context.getSharedPreferences("pref", Context.MODE_PRIVATE)
 }
 
-fun saveToken(context: Context, token: String?, isAccess: Boolean = true) {
-    getPref(context).edit().let {
-        it.putString(getKey(isAccess), token)
-        it.apply()
-    }
+fun saveToken(context: Context, token: String, isAccess: Boolean = true) {
+    //getPref(context).edit().let {
+        //it.putString(getKey(isAccess), token)
+        //it.apply()
+        val editor = getPref(context).edit()
+        editor.putString(getKey(isAccess), token)
+        editor.apply()
+
 }
 
 fun removeToken(context: Context, isAccess: Boolean = true) {
