@@ -17,13 +17,16 @@
             </intent-filter>-->
         </activity>
         <activity android:name=".ui.SelectTeamActivity" >
+
+        </activity>
+        <activity android:name=".ui.TeamDetailActivity"></activity>
+        <activity android:name=".ui.QrActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.TeamDetailActivity"></activity>
     </application>
 
 </manifest>

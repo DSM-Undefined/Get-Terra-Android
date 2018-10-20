@@ -1,5 +1,6 @@
 package undefined.dsm.getterra.ui
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -62,6 +63,7 @@ class TeamDetailActivity : AppCompatActivity() {
             api.postTeam("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Mzk5NjU5NzIsIm5iZiI6MTUzOTk2NTk3MiwianRpIjoiNGY2YTAyNDUtMjRiZS00NDg1LWJhNmYtOTFhY2ZlMzZlMjQ2IiwiZXhwIjoxNTcxNTAxOTcyLCJpZGVudGl0eSI6Im5lcmQiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ugcB9wpQJkAO3CwgKMX-vkU44OT97HAKEN8q_Po4MP8", type.toString())
                     .enqueue(object : Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
+
                         }
 
                         override fun onFailure(call: Call<Void>, t: Throwable) {

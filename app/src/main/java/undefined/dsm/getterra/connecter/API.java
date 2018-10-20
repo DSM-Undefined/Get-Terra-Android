@@ -15,4 +15,7 @@ public interface API {
 
     @POST("team")
     Call<Void> postTeam(@Header("Authorization") String token, @Query("team") String team);
+
+    @GET("/map/android")
+    Call<JsonArray> getMap(@Header("Authorization")String token);
 }
