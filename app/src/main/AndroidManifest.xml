@@ -3,6 +3,9 @@
     package="undefined.dsm.getterra">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
 
 
@@ -21,22 +24,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
-        <activity android:name=".ui.SelectTeamActivity" >
+        <activity android:name=".ui.SelectTeamActivity">
 
         </activity>
         <activity android:name=".ui.TeamDetailActivity"></activity>
-        <activity android:name=".ui.QrActivity"/>
-        <activity
-            android:name=".ui.SplashActivity">
+        <activity android:name=".ui.QrActivity">
+
         </activity>
-        <activity android:name=".ui.LoginActivity">
+        <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.SigninActivity"/>
+        <activity android:name=".ui.LoginActivity"></activity>
+        <activity android:name=".ui.SigninActivity" />
+        <activity android:name=".ui.QuizMainActivity">
+
+        </activity>
+        <activity android:name=".ui.CorrectionMainActivity"></activity>
     </application>
 
 </manifest>

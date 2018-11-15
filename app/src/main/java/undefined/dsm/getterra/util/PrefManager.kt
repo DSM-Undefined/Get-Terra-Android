@@ -23,7 +23,19 @@ fun removeToken(context: Context, isAccess: Boolean = true) {
 }
 
 fun getToken(context: Context, isAccess: Boolean = true): String {
-    return "JWT " + getPref(context).getString(getKey(isAccess), "")
+    return "Bearer " + getPref(context).getString(getKey(isAccess), "")
+}
+
+
+fun setTeamStatus(context: Context, token: String?) {
+    getPref(context).edit().let {
+        it.putString("team", token)
+        it.apply()
+    }
+}
+
+fun getTeamStatus(context: Context): String {
+    return getPref(context).getString("team", "")
 }
 
 private fun getKey(isAccess: Boolean): String = if (isAccess) "Access" else "Refresh"

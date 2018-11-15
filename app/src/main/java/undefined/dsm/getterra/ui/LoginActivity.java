@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +25,7 @@ import undefined.dsm.getterra.connecter.ItemLogin;
 import static com.justgo.Util.PrefManagerKt.saveToken;
 
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends AppCompatActivity {
     String userid;
     String password;
     ItemLogin accessToken;
@@ -50,13 +51,14 @@ public class LoginActivity extends Activity {
                 code = response.code();
                 if (response.code() == 200) {
                     Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                    accessToken = response.body();
+//                    accessToken.getAccessToken();
+                    saveToken(getBaseContext(), accessToken.getAccessToken(), isAccess);
+                    startActivity(new Intent(LoginActivity.this, SelectTeamActivity.class));
                 } else if (response.code() == 401) {
                     IdError.setText("잘못된 ID입니다.");
                     PasswordError.setText("잘못된 PW입니다.");
                 }
-                accessToken = response.body();
-//                    accessToken.getAccessToken();
-                saveToken(getBaseContext(), accessToken.getAccessToken(), isAccess);
 
 
             }

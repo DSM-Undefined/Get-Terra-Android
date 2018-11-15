@@ -1,67 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="3"
-    android:weightSum="2"
-    android:orientation="vertical"
-    android:background="@drawable/back_ellipse_default">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@drawable/back_ellipse_default"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:text="남은시간"
+            android:textColor="@android:color/white"
+            android:textSize="41sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1" />
+
+        <TextView
+            android:id="@+id/text_time"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:text="60:00"
+            android:textColor="@android:color/white"
+            android:textSize="39sp" />
+    </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.3"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.7"
-        android:text="남은시간"
-        android:textSize="41sp"
-        android:textColor="@android:color/white"
-        android:gravity="center" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"/>
-    <TextView
-        android:id="@+id/text_time"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.7"
-        android:text="60:00"
-        android:textSize="39sp"
-        android:textColor="@android:color/white"
-        android:gravity="center"/>
-</LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.3"/>
-    <RelativeLayout
+        android:layout_weight="0.3" />
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6.7">
-        <TextView
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_qr"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:padding="8dp"
-            android:id="@+id/list_qr"/>
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_qr"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/btn_qr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginBottom="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/back_btn_white"
             android:drawableTop="@drawable/ic_qr_code"
             android:gravity="center"
-            />
-    </RelativeLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 </LinearLayout>

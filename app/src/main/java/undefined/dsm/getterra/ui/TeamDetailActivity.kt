@@ -1,5 +1,6 @@
 package undefined.dsm.getterra.ui
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
@@ -7,6 +8,8 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import com.google.gson.JsonArray
 import com.justgo.Connecter.Connecter
+import com.justgo.Util.getToken
+import com.justgo.Util.setTeamStatus
 import kotlinx.android.synthetic.main.activity_team_detail.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import retrofit2.Call
@@ -22,11 +25,11 @@ class TeamDetailActivity : AppCompatActivity() {
         val intent = getIntent()
         val type = intent.getIntExtra("team", 0)
         val api = Connecter.createApi()
-        api.getTeam("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Mzk5NjU5NzIsIm5iZiI6MTUzOTk2NTk3MiwianRpIjoiNGY2YTAyNDUtMjRiZS00NDg1LWJhNmYtOTFhY2ZlMzZlMjQ2IiwiZXhwIjoxNTcxNTAxOTcyLCJpZGVudGl0eSI6Im5lcmQiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ugcB9wpQJkAO3CwgKMX-vkU44OT97HAKEN8q_Po4MP8")
+        api.getTeam(getToken(baseContext, true))
                 .enqueue(object : Callback<JsonArray> {
                     override fun onResponse(call: Call<JsonArray>, response: Response<JsonArray>) {
                         val body = response.body()
-                        body?.forEach {
+                        body?.get(type)?.asJsonArray?.forEach {
                             teamDetail_list_tv.append(it.asString)
                         }
                     }
@@ -60,10 +63,12 @@ class TeamDetailActivity : AppCompatActivity() {
         }
 
         teamDetail_select_btn.onClick {
-            api.postTeam("Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Mzk5NjU5NzIsIm5iZiI6MTUzOTk2NTk3MiwianRpIjoiNGY2YTAyNDUtMjRiZS00NDg1LWJhNmYtOTFhY2ZlMzZlMjQ2IiwiZXhwIjoxNTcxNTAxOTcyLCJpZGVudGl0eSI6Im5lcmQiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.ugcB9wpQJkAO3CwgKMX-vkU44OT97HAKEN8q_Po4MP8", type.toString())
+            api.postTeam(getToken(baseContext, true), type.toString())
                     .enqueue(object : Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
-
+                            startActivity(Intent(this@TeamDetailActivity, QrActivity::class.java))
+                            setTeamStatus(baseContext, "ok")
+                            finish()
                         }
 
                         override fun onFailure(call: Call<Void>, t: Throwable) {

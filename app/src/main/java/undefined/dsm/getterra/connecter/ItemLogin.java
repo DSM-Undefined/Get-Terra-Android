@@ -1,14 +1,14 @@
 package undefined.dsm.getterra.connecter;
 
 public class ItemLogin  {
-    public String accessToken;
+    public String accessTocken;
 
     public String getAccessToken() {
 
-        return accessToken;
+        return accessTocken;
     }
 
     public ItemLogin(String accessToken) {
-        this.accessToken = accessToken;
+        this.accessTocken = accessToken;
     }
 }

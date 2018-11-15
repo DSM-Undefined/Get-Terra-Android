@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CorrectionMainActivity">
+
+    <View
+        android:id="@+id/correction_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff5f5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/correction_topbackground_iv"
+        android:layout_width="1061dp"
+        android:layout_height="497dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/back_topbackground"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />f
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="300dp" />
+
+    <TextView
+        android:id="@+id/correction_clubname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="동아리이름"
+        android:textColor="#ffffffff"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/correction_background" />
+
+    <TextView
+        android:id="@+id/correction_isanswertrue_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:text="정답!"
+        android:textColor="#ffffffff"
+        android:textSize="80dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correction_clubname_tv" />
+
+    <TextView
+        android:id="@+id/correction_gomain_tv"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_background"
+        android:gravity="center"
+        android:text="메인으로"
+        android:textColor="#ffb587"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:onClick="goToMain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/correction_background"
+        app:layout_constraintVertical_bias="0.68" />
+
+    <TextView
+        android:id="@+id/correction_gotoback_tv"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_background"
+        android:gravity="center"
+        android:text="다시하기"
+        android:textColor="#ffb587"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:onClick="backToResolve"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/correction_background"
+        app:layout_constraintVertical_bias="0.85" />
+
+</android.support.constraint.ConstraintLayout>
